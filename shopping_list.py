@@ -22,7 +22,7 @@ def add_new_shopping_list(lists_by_name, new_list_name):
     """
 
     # your code here! 
-    pass
+    lists_by_name[new_list_name] = []
 
 
 def remove_shopping_list(lists_by_name, list_name_to_remove):
@@ -39,8 +39,10 @@ def remove_shopping_list(lists_by_name, list_name_to_remove):
     """
 
     # your code here! 
-    pass
-
+    if list_name_to_remove in lists_by_name:
+        del lists_by_name[list_name_to_remove]
+    else:
+        print "Name is not in shopping list."
 
 def add_to_shopping_list(lists_by_name, list_name, items):
     """Add given items to shopping list.
@@ -54,7 +56,7 @@ def add_to_shopping_list(lists_by_name, list_name, items):
     """
 
     # your code here! 
-    pass
+    
 
 
 def remove_from_shopping_list(lists_by_name, list_name, items):
@@ -72,7 +74,7 @@ def remove_from_shopping_list(lists_by_name, list_name, items):
     """
 
     # your code here! 
-    pass
+    
 
 
 def display_shopping_list(lists_by_name, list_name):
@@ -87,10 +89,12 @@ def display_shopping_list(lists_by_name, list_name):
     Returns:
       None
     """
-
-    # your code here! 
-    pass
-
+    if list_name not in lists_by_name:
+        print "Shopping list does not exist."
+    else:
+        print /n"Your items from {} are: ".format(list_name)/n
+        for item in lists_by_name[list_name]:
+            print item
 
 def show_all_lists(lists_by_name):
     """Given a dictionary of shopping lists, print out each list.
@@ -102,7 +106,8 @@ def show_all_lists(lists_by_name):
     """
 
     # your code here! 
-    pass
+    for k in lists_by_name:
+        display_shopping_list(lists_by_name, k)
 
 
 def parse_string_of_items(items_string):
