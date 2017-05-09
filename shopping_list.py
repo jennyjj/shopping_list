@@ -20,8 +20,6 @@ def add_new_shopping_list(lists_by_name, new_list_name):
     Returns:
       None
     """
-
-    # your code here! 
     lists_by_name[new_list_name] = []
 
 
@@ -55,7 +53,7 @@ def add_to_shopping_list(lists_by_name, list_name, items):
       None
     """
 
-    # your code here! 
+    lists_by_name[list_name].extend(items)# your code here! 
     
 
 
@@ -73,7 +71,12 @@ def remove_from_shopping_list(lists_by_name, list_name, items):
       None
     """
 
-    # your code here! 
+    for i in items:
+      if i not in lists_by_name[list_name]:
+         print "{} does not exist in the list.".format(i)
+      else:
+         lists_by_name[list_name].remove(i)
+         
     
 
 
